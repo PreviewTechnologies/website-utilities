@@ -3,6 +3,8 @@
 namespace Previewtechs\WebsiteUtilities\RobotsDotTxtGenerator;
 
 
+use Psr\Http\Message\ResponseInterface;
+
 class RobotsDotTxtGenerator
 {
     /**
@@ -14,6 +16,11 @@ class RobotsDotTxtGenerator
      * @var string
      */
     protected $newLine = "<br>";
+
+    /**
+     * @var null
+     */
+    protected $finalText = null;
 
     /**
      * RobotsDotTxtGenerator constructor.
@@ -45,9 +52,9 @@ class RobotsDotTxtGenerator
     }
 
     /**
-     * @return string
+     * @return $this
      */
-    public function generate()
+    protected function generate()
     {
         $str = "";
 
@@ -65,6 +72,38 @@ class RobotsDotTxtGenerator
             $str .= $this->newLine;
         }
 
-        return $str;
+        $this->finalText = $str;
+
+        return $this;
+    }
+
+    /**
+     * @param ResponseInterface $response
+     *
+     * @return int
+     */
+    public function respondAsTextFile(ResponseInterface $response)
+    {
+        if ($this->finalText === null) {
+            $this->generate();
+        }
+
+        return $response->withStatus(200)->withHeader('Content-Type', 'text/plain')->getBody()->write($this->finalText);
+    }
+
+    /**
+     * @return null|string
+     */
+    public function __toString()
+    {
+        if ($this->finalText === null) {
+            $this->generate();
+        }
+
+        if ($this->finalText === null) {
+            return "";
+        }
+
+        return $this->finalText;
     }
 }
