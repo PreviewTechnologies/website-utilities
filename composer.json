@@ -1,6 +1,6 @@
 {
-    "name": "previewtechs/robots-txt-generator",
-    "description": "robots.txt response generator for any PSR-4 HTTP response",
+    "name": "previewtechs/website-utilities",
+    "description": "Website utilities based on PSR",
     "type": "library",
     "require": {
         "psr/http-message": "^1.0"
