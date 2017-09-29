@@ -3,7 +3,7 @@
 `composer require previewtechs/website-utilities`
 
 
-####General robots.txt
+#### General robots.txt
 ```php
 <?php
 require "vendor/autoload.php";
@@ -43,7 +43,7 @@ Disallow: /thanks
 ```
 
 
-####Generate sitemap.xml
+#### Generate sitemap.xml
 ```php
 <?php
 require "vendor/autoload.php";
