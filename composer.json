@@ -1,0 +1,21 @@
+{
+    "name": "previewtechs/robots-txt-generator",
+    "description": "robots.txt response generator for any PSR-4 HTTP response",
+    "type": "library",
+    "require": {
+        "psr/http-message": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Preview Technologies Limited",
+            "email": "info@previewtechs.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Previewtechs\\WebsiteUtilities\\": "src"
+        }
+    }
+}
