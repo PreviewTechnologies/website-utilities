@@ -1,9 +1,9 @@
-### Installation
+# Installation
 
 `composer require previewtechs/website-utilities`
 
 
-####General robots.txt
+## General robots.txt
 ```php
 <?php
 require "vendor/autoload.php";
@@ -43,7 +43,7 @@ Disallow: /thanks
 ```
 
 
-####Generate sitemap.xml
+## Generate sitemap.xml
 ```php
 <?php
 require "vendor/autoload.php";
@@ -92,3 +92,9 @@ Output:
 	</url>
 </urlset>
 ```
+
+## Bug & Issues
+Please submit issues, questions in [GitHub Issues](https://github.com/PreviewTechnologies/website-utilities/issues).
+
+## Contributors
+[Shaharia Azam](https://github.com/shahariaazam) from [Preview Technologies Limited](https://www.previewtechs.com). To see all contributers [click here](https://github.com/PreviewTechnologies/website-utilities/graphs/contributors)
