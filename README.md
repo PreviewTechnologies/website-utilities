@@ -93,6 +93,23 @@ Output:
 </urlset>
 ```
 
+## 301 Redirect
+
+```php
+<?php
+require "vendor/autoload.php";
+
+//Application wide middleware
+$oldAndNewPathMapping = [
+    '/oldPath1' => 'newPath1',
+    '/oldPath2' => 'newPath2'
+];
+$threeZeroOneRedirect = new ThreeZeroOneRedirectPsrMiddleware();
+$threeZeroOneRedirect->setPaths($oldAndNewPathMapping);
+$app->add($threeZeroOneRedirect);
+//End of 301 redirect middleware
+```
+
 ## Bug & Issues
 Please submit issues, questions in [GitHub Issues](https://github.com/PreviewTechnologies/website-utilities/issues).
 
