@@ -33,6 +33,18 @@ class RobotsDotTxtGenerator
     }
 
     /**
+     * @param $newLineCharacter
+     *
+     * @return RobotsDotTxtGenerator
+     */
+    public function setNewLine($newLineCharacter)
+    {
+        $this->newLine = $newLineCharacter;
+
+        return $this;
+    }
+
+    /**
      * @param RobotsDotTxtRules $robotsDotTxtRules
      *
      * @return $this
