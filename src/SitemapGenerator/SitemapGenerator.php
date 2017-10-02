@@ -103,8 +103,7 @@ class SitemapGenerator
 
     /**
      * @param ResponseInterface $response
-     *
-     * @return int
+     * @return ResponseInterface
      */
     public function respondAsXML(ResponseInterface $response)
     {
@@ -112,10 +111,12 @@ class SitemapGenerator
             $this->generate();
         }
 
-        return $response->withStatus(200)
-            ->withHeader('Content-Type', 'text/xml')
-            ->getBody()
-            ->write($this->finalSitemap);
+        $response = $response->withStatus(200)
+            ->withAddedHeader('Content-Type', 'text/xml');
+
+        $response->getBody()->write($this->finalSitemap);
+
+        return $response;
     }
 
     public function __toString()
