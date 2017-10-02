@@ -79,8 +79,7 @@ class RobotsDotTxtGenerator
 
     /**
      * @param ResponseInterface $response
-     *
-     * @return int
+     * @return ResponseInterface
      */
     public function respondAsTextFile(ResponseInterface $response)
     {
@@ -88,7 +87,12 @@ class RobotsDotTxtGenerator
             $this->generate();
         }
 
-        return $response->withStatus(200)->withHeader('Content-Type', 'text/plain')->getBody()->write($this->finalText);
+        $response = $response->withStatus(200)
+            ->withAddedHeader('Content-Type', 'text/plain');
+
+        $response->getBody()->write($this->finalText);
+
+        return $response;
     }
 
     /**
