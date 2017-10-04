@@ -74,7 +74,7 @@ class RobotsDotTxtGenerator
             $str .= sprintf("User-Agent: %s", $rule->getUserAgent()) . $this->newLine;
 
             foreach ($rule->getAllowedPaths() as $allowedPath) {
-                $str .= sprintf("Allowed: %s", $allowedPath) . $this->newLine;
+                $str .= sprintf("Allow: %s", $allowedPath) . $this->newLine;
             }
 
             foreach ($rule->getDisallowedPaths() as $allowedPath) {
